@@ -48,4 +48,12 @@
   .letter {
     @apply mx-2 text-3xl font-medium;
   }
+
+  .keyboard {
+    @apply max-w-2xl mt-5 flex justify-center flex-wrap;
+  }
+  .keyboard-button {
+    @apply w-10 h-10 sm:w-14 sm:h-14 m-1 sm:m-2 
+  }
+
 }

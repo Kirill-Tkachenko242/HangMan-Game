@@ -24,7 +24,7 @@ const createKeyboard = () => {
     keyboard.id = 'keyboard'
 
     const keyboardHTML = KEYBOARD_LETTERS.reduce((acc, curr) => {
-        return acc + `<button class="button-primary" id="${curr}"> ${curr}</button>`
+        return acc + `<button class="button-primary keyboard-button" id="${curr}"> ${curr}</button>`
     }, ``)
 
     keyboard.innerHTML = keyboardHTML;
@@ -35,10 +35,13 @@ export const startGame = () => {
     const randomIndex = Math.floor(Math.random() * WORDS.length)
     const WordToGuess = WORDS[randomIndex]
     const keyboardDiv = createKeyboard();
+    keyboardDiv.addEventListener('click', (event) => {
+        console.log(event.target.id);
+    })
     sessionStorage.setItem('word', WordToGuess)
     // Marth.random() // from 0 to 1
     gameDiv.innerHTML = createPlaceholdersHTML()
+    gameDiv.innerHTML = `<p id="tries" class="mt-2">Tries left: <span id="tries-left" 
+    class="font-medium text-red-600">10<span> </p>`
     gameDiv.appendChild(keyboardDiv)
 };
-
-console.log(KEYBOARD_LETTERS);
